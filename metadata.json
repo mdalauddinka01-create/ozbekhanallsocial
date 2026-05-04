@@ -1,0 +1,6 @@
+{
+  "name": "SocialSync Dashboard",
+  "description": "Cross-post content simultaneously to Facebook, Instagram, and Telegram from a single dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

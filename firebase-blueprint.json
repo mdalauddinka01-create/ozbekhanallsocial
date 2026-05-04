@@ -1,0 +1,39 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User profile data stored by UID",
+      "type": "object",
+      "properties": {
+        "username": { "type": "string", "description": "Display username" },
+        "email": { "type": "string", "description": "User email" },
+        "photoURL": { "type": "string", "description": "Base64 or URL profile image" },
+        "createdAt": { "type": "string", "description": "ISO timestamp" },
+        "isGoogle": { "type": "boolean", "description": "Whether user logged in with Google" }
+      },
+      "required": ["username", "email", "photoURL", "createdAt"]
+    },
+    "UsernameMap": {
+      "title": "Username Mapping",
+      "description": "Used to ensure unique usernames and lookup users by username",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Firestore user UID" },
+        "email": { "type": "string", "description": "User email" },
+        "username": { "type": "string", "description": "Lowercase username" },
+        "photoURL": { "type": "string", "description": "Profile image" }
+      },
+      "required": ["uid", "email", "username", "photoURL"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Collection of user profiles"
+    },
+    "/usernames/{username}": {
+      "schema": "UsernameMap",
+      "description": "Mapping from username to UID"
+    }
+  }
+}
